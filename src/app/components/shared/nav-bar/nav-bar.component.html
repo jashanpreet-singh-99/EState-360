@@ -27,7 +27,18 @@
                 <button class="control-btn large">
                     <span>Signup</span>
                 </button>
+                <div class="nav-mobile-menu" (click)="toggleNavMode()">
+                    <span class="material-symbols-outlined non-selectable">{{ NavMenuIcon }}</span>
+                </div>
             </div>
+        </div>
+    </div>
+    <div *ngIf="showMobileMenu" class="nav-link-mobile" @expandCollapse>
+        <div class="nav-encloser">
+            <span class="nav-link">Home</span>
+            <span class="nav-link">Buy</span>
+            <span class="nav-link">Sell</span>
+            <span class="nav-link">Listing</span>
         </div>
     </div>    
 </div>
