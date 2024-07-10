@@ -1,0 +1,50 @@
+<div class="container">
+    <!-- Quick Controls -->
+    <div class="control-container">
+        <button class="toggle-btn" [class.active]="isSelectedMode(0)" (click)="setSelectMode(0)">
+            <span>Buy</span>
+        </button>
+        <button class="toggle-btn" [class.active]="isSelectedMode(1)" (click)="setSelectMode(1)">
+            <span>Sell</span>
+        </button>
+        <button class="toggle-btn" [class.active]="isSelectedMode(2)" (click)="setSelectMode(2)">
+            <span>Rent</span>
+        </button>
+    </div>
+    <div class="search-container">
+        <div class="search-items-container">
+            <h2>Search :</h2>
+            <div class="search-input-container">
+                <span class="material-symbols-outlined">search</span>
+                <input class="input-box" type="text" placeholder="Search your Keywords">
+                <div class="divider"></div>
+            </div>
+        </div>
+        <div class="search-items-container">
+            <h2>Search Categories :</h2>
+            <div class="search-input-container">
+                <span class="material-symbols-outlined">home</span>
+                <input class="input-box" type="text" placeholder="Select...">
+                <div class="divider sm-end"></div>
+            </div>
+        </div>
+        <div class="search-items-container">
+            <h2>Min Price :</h2>
+            <div class="search-input-container">
+                <span class="material-symbols-outlined">paid</span>
+                <input class="input-box" type="text" placeholder="CAD 100000">
+                <div class="divider"></div>
+            </div>
+        </div>
+        <div class="search-items-container">
+            <h2>Max Price :</h2>
+            <div class="search-input-container">
+                <span class="material-symbols-outlined">paid</span>
+                <input class="input-box" type="text" placeholder="CAD 1000000">
+            </div>
+        </div>
+        <button class="search-btn">
+            <span>Search</span>
+        </button>
+    </div>
+</div>

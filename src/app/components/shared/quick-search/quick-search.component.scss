@@ -1,0 +1,150 @@
+@import '../../../../styles/_fonts.scss';
+@import '../../../../styles/_dimns.scss';
+@import '../../../../styles/_colors.scss';
+
+$border-radius: 16px;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: -100px;
+    padding: 8px;
+    box-sizing: border-box;
+    z-index: 7;
+    align-items: start;
+
+    .control-container {
+        display: flex;
+        flex-direction: row;
+        background-color: #FDFDFD;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        box-shadow: $shadow-card;
+        padding: 14px;
+        gap: 4px;
+
+        .toggle-btn {
+            padding: 10px 20px;
+            color: $color-black;
+            border: none;
+            background-color: transparent;
+            border-radius: 6px;
+
+            transition: all $anim-time ease;
+
+            span {
+                @include font_regular($prime-text, $text-semibold);
+                font-size: medium;
+            }
+
+            &.active {
+                background-color: $color-accent;
+                color: $color-white;
+            }
+        }
+    }
+
+    .search-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        width: 100%;
+        padding: 24px;
+        box-sizing: border-box; 
+        background-color: $color-white;
+        box-shadow: $shadow-card;
+        border-top-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+
+        gap: 16px 0;
+
+        .search-items-container {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin: 8px 0;
+                @include font_regular($prime-text, $text-semibold);
+                font-size: large;
+            }
+
+            .search-input-container {
+                display: flex;
+                padding: 8px;
+                gap: 8px;
+                flex-direction: row;
+                align-items: center;
+                background-color: #F5F5F5;
+
+                .material-symbols-outlined {
+                    color: $color-accent;
+                }
+
+                .input-box {
+                    flex: 1;
+                    border: none;
+                    outline: none;
+                    padding: 8px;
+                    background-color: #F5F5F5;
+                    font-size: medium;
+                    @include font_regular($prime-text);
+                }
+
+                .divider {
+                    height: 80%;
+                    width: 1px;
+                    background-color: $color-disabled;
+                    opacity: 0.5;
+                }
+
+                .sm-end {
+                    display: block;
+                }
+            }
+
+        }
+
+        .search-btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 6px;
+            color: $color-white;
+            background-color: $color-accent;
+            
+            span {
+                @include font_regular($prime-text, $text-semibold);
+                font-size: medium;
+            }
+        }
+    }
+}
+
+@media (max-width: $width-xl) {
+    .container .search-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        .search-items-container .search-input-container .sm-end {
+                display: none;
+        }
+    }
+}
+
+@media (max-width: $width-md) {
+    .container .search-container {
+        grid-template-columns: repeat(1, 1fr);
+
+        .search-items-container .search-input-container {
+            padding-left: 16px;
+
+            .input-box {
+                font-size: small;
+            }
+            
+            .divider {
+                display: none;
+            }
+        }
+    }
+}
