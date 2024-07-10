@@ -2,7 +2,6 @@
 @import '../../../../styles/_dimns.scss';
 @import '../../../../styles/_colors.scss';
 
-
 .img-container {
     height: 600px;
     display: flex;
@@ -29,7 +28,7 @@
     .text-container {
         display: flex;
         flex-direction: column;
-        margin: 10%;
+        padding: 0 16px;
         z-index: 2;
 
         h1 {
@@ -56,6 +55,8 @@
         height: 500px;
 
         .text-container {
+            padding: 2px;
+            box-sizing: border-box;
             h1 {
                 text-align: center;
                 font-size: xx-large;
