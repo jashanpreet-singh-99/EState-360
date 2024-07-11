@@ -41,6 +41,14 @@ $border-radius: 16px;
             &.active {
                 background-color: $color-accent;
                 color: $color-white;
+
+                &:hover {
+                    color: $color-white;
+                }
+            }
+
+            &:hover {
+                color: $color-accent;
             }
         }
     }
@@ -112,10 +120,15 @@ $border-radius: 16px;
             border-radius: 6px;
             color: $color-white;
             background-color: $color-accent;
+            transition: all $anim-time ease;
             
             span {
                 @include font_regular($prime-text, $text-semibold);
                 font-size: medium;
+            }
+
+            &:hover {
+                background-color: $color-accent-h;
             }
         }
     }

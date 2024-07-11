@@ -90,6 +90,7 @@
             padding: 8px 32px;
             color: $color-white;
             background-color: $color-accent;
+            transition: all $anim-time ease;
 
             span {
                 @include font-regular($prime-text);
