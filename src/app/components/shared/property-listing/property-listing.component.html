@@ -1,0 +1,34 @@
+<div class="listing-item-container">
+    <img class="listing-img" [src]="img">
+    <h4>{{ address }}</h4>
+    <h5>{{ region }} {{ pinCode }}</h5>
+    <div class="divider"></div>
+    <div class="listing-features">
+        <div class="listing-feature">
+            <span class="material-symbols-outlined">fullscreen_exit</span>
+            <p>{{ area }} sqf</p>
+        </div>
+        <div class="listing-feature">
+            <span class="material-symbols-outlined">bed</span>
+            <p>{{ beds }} Beds</p>
+        </div>
+        <div class="listing-feature">
+            <span class="material-symbols-outlined">bathtub</span>
+            <p>{{ baths }} Baths</p>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="listing-details">
+        <div class="details">
+            <p>Price</p>
+            <h4>$ {{ price }}</h4>
+        </div>
+        <div class="details">
+            <p>Rating</p>
+            <h4>{{ rating }} ({{ ratingCount }})</h4>
+        </div>
+    </div>
+    <div class="fav-container">
+        <span class="material-symbols-outlined">favorite</span>
+    </div>
+</div>

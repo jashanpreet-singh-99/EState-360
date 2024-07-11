@@ -54,3 +54,20 @@
     <h2>Featured Properties</h2>
     <p>A great platform to buy, sell and rent your properties without any agent <br> or commissions.</p>
 </div>
+<!-- Listings -->
+<div class="container listing-container">
+    <ng-container *ngFor="let listing of listings">
+        <property-listing
+        [img]="listing.img"
+        [address]="listing.address"
+        [region]="listing.region"
+        [pinCode]="listing.pinCode"
+        [area]="listing.area"
+        [beds]="listing.beds"
+        [baths]="listing.baths"
+        [price]="listing.price"
+        [rating]="listing.rating"
+        [ratingCount]="listing.ratingCount"
+        ></property-listing>
+    </ng-container>
+</div>

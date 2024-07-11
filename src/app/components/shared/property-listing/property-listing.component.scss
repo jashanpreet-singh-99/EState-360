@@ -1,0 +1,127 @@
+@import '../../../../styles/_fonts.scss';
+@import '../../../../styles/_dimns.scss';
+@import '../../../../styles/_colors.scss';
+
+$border-radius: 16px;
+
+.listing-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: none;
+    border-radius: $border-radius;
+    box-shadow: $shadow-card;
+    overflow: hidden;
+    align-items: center;
+    padding-bottom: $nav-gap;
+    position: relative;
+
+    .listing-img {
+        width: 100%;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+    }
+
+    h4 {
+        width: 90%;
+        margin-bottom: 8px;
+        @include font-regular($prime-text, $text-semibold);
+        font-size: large;
+        text-align: center;
+    }
+
+    h5 {
+        margin: 0;
+        margin-bottom: 8px;
+        width: 90%;
+        @include font-regular($prime-text);
+        font-size: medium;
+        text-align: center;
+        color: $color-disabled-d
+    }
+
+    p {
+        @include font-regular($prime-text);
+        font-size: medium;
+    }
+
+    .divider {
+        height: 1px;
+        width: 90%;
+        background-color: $color-off-white;
+        margin: 8px 0;
+    }
+
+    .listing-features {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .listing-feature {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+
+            span {
+                color: $color-accent;
+            }
+
+        }
+    }
+
+    .listing-details {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        margin-top: 16px;
+
+        .details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                margin: 4px 0;
+                color: $color-disabled-d;
+            }
+
+            h4 {
+                font-size: medium;
+                margin: 0;
+                text-align: start;
+            }
+        }
+    }
+
+    .fav-container {
+        display: flex;
+        flex-direction: row;
+        height: 36px;
+        width: 36px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 16px;
+        border: none;
+        border-radius: 50%;
+        box-shadow: $shadow-card;
+        background-color: $color-off-white;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        span {
+            font-size: 20px;
+            color: $color-disabled-d;
+        }
+
+        &:hover {
+            span {
+                color: red;
+            }
+        }
+    } 
+}
