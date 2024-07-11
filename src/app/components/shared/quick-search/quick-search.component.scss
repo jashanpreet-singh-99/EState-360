@@ -132,18 +132,29 @@ $border-radius: 16px;
 }
 
 @media (max-width: $width-md) {
-    .container .search-container {
-        grid-template-columns: repeat(1, 1fr);
 
-        .search-items-container .search-input-container {
-            padding-left: 16px;
+    .container {
+        .control-container {
+            width: 100%;
+            box-sizing: border-box;
+            justify-content: center;
+        }
 
-            .input-box {
-                font-size: small;
-            }
-            
-            .divider {
-                display: none;
+        .search-container {
+            border-top-right-radius: 0;
+
+            grid-template-columns: repeat(1, 1fr);
+
+            .search-items-container .search-input-container {
+                padding-left: 16px;
+
+                .input-box {
+                    font-size: small;
+                }
+                
+                .divider {
+                    display: none;
+                }
             }
         }
     }
