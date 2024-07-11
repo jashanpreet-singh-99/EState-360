@@ -104,6 +104,125 @@
     }
 }
 
+.process-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: $nav-gap;
+
+    h2 {
+        @include font-regular($prime-text, $text-semibold);
+        font-size: xx-large;
+        text-align: center;
+    }
+
+    .multi-line-text {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0;
+        justify-content: center;
+
+
+        p {
+            margin: 2px;
+            text-align: center;
+            @include font-regular($prime-text);
+            font-size: medium;
+            color: $color-disabled-d;
+        }
+    }
+
+    .process-item-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: $nav-gap;
+        gap: $nav-gap;
+
+        .process-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+
+            .shaped-encloser {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                align-items: center;
+                justify-content: center;
+                margin: 16px;
+
+                .shaped-icon {
+                    color: $color-accent;
+                    font-size: 42px;
+                    position: absolute;
+                    transition: all $anim-time ease;
+
+                    &.r-45 {
+                        transform: rotate(-45deg);
+                    }
+                }
+
+                &:hover {
+                    .shaped-icon {
+                        transform: scale(1.1);
+                    }
+                }
+    
+                .shaped {
+                    position: relative;
+                    width: 4em;
+                    height: 7.32em;
+                    background-color: $color-accent-l;
+                    border-radius: 0.8em / .2em;
+                    transform: rotate(90deg);
+                }
+    
+                .shaped::before, .shaped::after {
+                    content: '';
+                    position: absolute;
+                    width: inherit;
+                    height: inherit;
+                    background: inherit;
+                    border-radius: inherit;
+                }
+    
+                .shaped::before {
+                    transform: rotate(60deg);
+                }
+    
+                .shaped::after {
+                    transform: rotate(-60deg);
+                }
+            }
+
+            h3 {
+                @include font-regular($prime-text, $text-semibold);
+                font-size: large;
+                text-align: center;
+                margin: 0;
+            }
+
+            p {
+                width: 75%;
+                margin: 2px;
+                text-align: center;
+                @include font-regular($prime-text);
+                font-size: medium;
+                color: $color-disabled-d;
+            }
+        }
+    }
+}
+
+
+@media (max-width: $width-xl) {
+    .process-section .process-item-container .process-item p {
+           width: 100%;
+    }
+}
+
+
 @media (max-width: $width-md) {
     .img-container {
         height: 500px;
@@ -134,5 +253,9 @@
                 font-size: x-large;
             }
         }
+    }
+
+    .process-section .process-item-container {
+        grid-template-columns: 1fr;
     }
 }
