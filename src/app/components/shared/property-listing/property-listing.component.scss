@@ -18,6 +18,8 @@ $border-radius: 16px;
 
     .listing-img {
         width: 100%;
+        height: 240px;
+        object-fit: cover;
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
     }

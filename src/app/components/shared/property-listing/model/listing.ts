@@ -1,4 +1,4 @@
-export interface Listing{
+export interface Listing {
     img: string;
     address: string;
     region: string;

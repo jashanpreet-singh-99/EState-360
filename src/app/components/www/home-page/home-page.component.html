@@ -49,25 +49,31 @@
         </div>
     </div>
  </div>
- <!-- Featured Text Section -->
- <div class="container process-section">
-    <h2>Featured Properties</h2>
-    <p>A great platform to buy, sell and rent your properties without any agent <br> or commissions.</p>
-</div>
-<!-- Listings -->
-<div class="container listing-container">
-    <ng-container *ngFor="let listing of listings">
-        <property-listing
-        [img]="listing.img"
-        [address]="listing.address"
-        [region]="listing.region"
-        [pinCode]="listing.pinCode"
-        [area]="listing.area"
-        [beds]="listing.beds"
-        [baths]="listing.baths"
-        [price]="listing.price"
-        [rating]="listing.rating"
-        [ratingCount]="listing.ratingCount"
-        ></property-listing>
-    </ng-container>
-</div>
+ <ng-container *ngIf="topListings$ | async as topListings; else loading" >
+    <!-- Featured Text Section -->
+    <div class="container process-section">
+        <h2>Featured Properties</h2>
+        <p>A great platform to buy, sell and rent your properties without any agent <br> or commissions.</p>
+    </div>
+    <!-- Listings -->
+    <div class="container listing-container">
+        <ng-container *ngFor="let listing of topListings">
+            <property-listing
+            [img]="listing.img"
+            [address]="listing.address"
+            [region]="listing.region"
+            [pinCode]="listing.pinCode"
+            [area]="listing.area"
+            [beds]="listing.beds"
+            [baths]="listing.baths"
+            [price]="listing.price"
+            [rating]="listing.rating"
+            [ratingCount]="listing.ratingCount"
+            ></property-listing>
+        </ng-container>
+    </div>
+ </ng-container>
+
+ <ng-template #loading>
+    <p> Loading Highest rated Listings .... </p>
+ </ng-template>
