@@ -3,6 +3,7 @@ import { environment } from "../../environment/environment";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Listing } from '../components/shared/property-listing/model/listing';
+import { ListingSearch } from '../components/shared/quick-search/models/listing-search';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,10 @@ export class ListingService {
   getTopListings(count: number): Observable<Listing[]> {
     const url = `${this.apiUrl}/top?count=${count}`;
     return this.http.get<Listing[]>(url);
+  }
+
+  searchListings(listingSearch: ListingSearch) : Observable<Listing[]> {
+    const url = `${this.apiUrl}/search`;
+    return this.http.post<Listing[]>(url, listingSearch);
   }
 }
