@@ -1,0 +1,51 @@
+@import '../../../../styles/_fonts.scss';
+@import '../../../../styles/_dimns.scss';
+@import '../../../../styles/_colors.scss';
+
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: $nav-gap;
+
+    .pagination-btn {
+        height: 42px;
+        width: 42px;
+        border: none;
+        border-radius: 50%;
+        box-shadow: $shadow-btn;
+        background-color: $color-white;
+        transition: all $anim-time ease;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+
+        .material-symbols-outlined {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        span {
+            color: $color-disabled;
+            font-size: medium
+        }
+
+        &:hover, &.active {
+            background-color: $color-accent;
+
+            span {
+                color: $color-white;
+            }
+        }
+
+        &:active {
+            background-color: $color-accent-h;
+        }
+    }
+
+}

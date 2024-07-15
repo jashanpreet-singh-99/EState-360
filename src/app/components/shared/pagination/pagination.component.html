@@ -1,0 +1,14 @@
+<div class="container pagination-container">
+    <button *ngIf="showPageButtons" class="pagination-btn" (click)="onPreviousPage()">
+        <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    
+    <ng-container *ngFor="let pageNumber of pageNumbers">
+        <button class="pagination-btn" (click)="onPageChange(pageNumber)" [class.active]="isActivePage(pageNumber)">
+            <span>{{ pageNumber }}</span>
+        </button>
+    </ng-container>
+    <button *ngIf="showPageButtons" class="pagination-btn" (click)="onNextPage()">
+        <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+</div>
