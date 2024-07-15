@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuickSearchComponent } from "../../shared/quick-search/quick-search.component";
 import { CommonModule } from '@angular/common';
-import { map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject, switchMap, tap } from 'rxjs';
 import { Listing } from '../../shared/property-listing/model/listing';
 import { ListingService } from '../../../services/listing.service';
 import { PropertyListingComponent } from "../../shared/property-listing/property-listing.component";
@@ -22,7 +22,12 @@ import { QuickSearchMode } from '../../shared/quick-search/enums/quick_search_mo
 export class BuyPageComponent implements OnInit {
 
   listings$: Observable<Listing[]> = new Observable<Listing[]>();
-  listingsCount$: Observable<number> = new Observable<number>();;
+  listingsCount$: Observable<number> = new Observable<number>();
+
+  currentPageNumber = new BehaviorSubject<number>(1);
+
+  totalPages: number = 1;
+  currentPage: number = 1;
 
   listingSearch: ListingSearch = {
     type: 'Buy',
@@ -45,8 +50,16 @@ export class BuyPageComponent implements OnInit {
   }
 
   loadListings(): void {
-    this.listings$ = this._listingService.searchListings(this.listingSearch);
-
+    this.listings$ = this.currentPageNumber.pipe(
+      switchMap(page => this._listingService.searchListings(this.listingSearch, page).pipe(
+          tap(response => {
+              this.totalPages = response.totalPages;
+              this.currentPage = response.currentPage;
+          }),
+          map(response => response.listings)
+      ))
+    );
+    
     this.listingsCount$ = this.listings$.pipe(
       map(listings => listings.length)
     )
@@ -54,10 +67,14 @@ export class BuyPageComponent implements OnInit {
 
   onPageChangeRequest(pageState: PageState): void {
     console.log('Change Page: ', pageState);
+    if (pageState.new >= 1 && pageState.new <= this.totalPages) {
+      this.currentPageNumber.next(pageState.new);
+    }
   }
 
   updateSearchPattern(searchListing: ListingSearch): void {
     this.listingSearch = searchListing;
+    this.currentPageNumber.next(1);
     this.loadListings();
   }
 }

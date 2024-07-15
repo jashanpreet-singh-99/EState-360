@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Listing } from '../components/shared/property-listing/model/listing';
 import { ListingSearch } from '../components/shared/quick-search/models/listing-search';
+import { PagedListings } from './models/paged-listings';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +20,10 @@ export class ListingService {
     return this.http.get<Listing[]>(url);
   }
 
-  searchListings(listingSearch: ListingSearch) : Observable<Listing[]> {
+  searchListings(listingSearch: ListingSearch, pageNumber: number) : Observable<PagedListings> {
     console.log('Search Listing Service: ');
-
-    const url = `${this.apiUrl}/search`;
-    return this.http.post<Listing[]>(url, listingSearch);
+    const pageSize = 6;
+    const url = `${this.apiUrl}/search?pageNumber=${pageNumber}&pageSize${pageSize}`;
+    return this.http.post<PagedListings>(url, listingSearch);
   }
 }

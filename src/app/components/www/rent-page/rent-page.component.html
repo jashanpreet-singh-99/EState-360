@@ -21,8 +21,8 @@
 <pagination 
     *ngIf="(listingsCount$ | async)! > 0"
     [start]="1"
-    [current]="1"
-    [end]="1"
+    [current]="currentPage"
+    [end]="totalPages"
     [visible]="4"
     (changePage)="onPageChangeRequest($event)"
 ></pagination>
