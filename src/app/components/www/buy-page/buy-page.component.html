@@ -1,18 +1,24 @@
 <div class="img-container">
     <img class="hero-image" src="/assets/hero-image.jpg">
+    <div class="container text-container">
+        <h1>
+            Buy your <span class="colored">Dream</span> home</h1>
+    </div>
 </div>
-<quick-search/>
+<quick-search
+[disableModeControls]="true"
+(searchResult)="updateSearchPattern($event)"
+/>
 
 <!-- Show listings -->
 <div class="container listing-container">
-    <ng-container *ngFor="let listing of listings$| async">
-        <property-listing
-            [listing]="listing"
-        ></property-listing>
+    <ng-container *ngIf="(listings$ | async) as listings">
+        <property-listing *ngFor="let listing of listings" [listing]="listing"></property-listing>
     </ng-container>
 </div>
 <!-- Pagination -->
 <pagination 
+    *ngIf="(listingsCount$ | async)! > 0"
     [start]="1"
     [current]="1"
     [end]="4"
@@ -20,4 +26,10 @@
     (changePage)="onPageChangeRequest($event)"
 ></pagination>
 
-<p>end</p>
+<div *ngIf="(listingsCount$ | async)! <= 0" class="no-item-container">
+    <span> No listings found for the present search.</span>
+</div>
+
+<div class="container divider">
+    <span>.</span>
+</div>

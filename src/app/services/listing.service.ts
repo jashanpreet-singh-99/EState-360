@@ -20,6 +20,8 @@ export class ListingService {
   }
 
   searchListings(listingSearch: ListingSearch) : Observable<Listing[]> {
+    console.log('Search Listing Service: ');
+
     const url = `${this.apiUrl}/search`;
     return this.http.post<Listing[]>(url, listingSearch);
   }
