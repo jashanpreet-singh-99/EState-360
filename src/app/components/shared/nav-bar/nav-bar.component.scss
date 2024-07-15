@@ -51,6 +51,7 @@
                 @include font-regular($prime-text);
                 font-size: medium;
                 transition: all $anim-time ease;
+                cursor: pointer;
     
                 &:hover {
                     color: $color-accent;
@@ -185,6 +186,7 @@
             @include font-regular($prime-text);
             font-size: medium;
             transition: all $anim-time ease;
+            cursor: pointer;
     
             &:hover {
                 color: $color-accent;

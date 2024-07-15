@@ -6,8 +6,8 @@
         </div>
         <div class="control-container">
             <div class="links-container">
-                <span class="nav-link">Home</span>
-                <span class="nav-link">Buy</span>
+                <span class="nav-link" [routerLink]="['/home']">Home</span>
+                <span class="nav-link" [routerLink]="['/buy']">Buy</span>
                 <span class="nav-link">Sell</span>
                 <div class="link-container">
                     <span class="nav-link">Listing</span>
@@ -35,8 +35,8 @@
     </div>
     <div *ngIf="showMobileMenu" class="nav-link-mobile" @expandCollapse>
         <div class="nav-encloser">
-            <span class="nav-link">Home</span>
-            <span class="nav-link">Buy</span>
+            <span class="nav-link" [routerLink]="['/home']">Home</span>
+            <span class="nav-link" [routerLink]="['/buy']">Buy</span>
             <span class="nav-link">Sell</span>
             <span class="nav-link">Listing</span>
         </div>

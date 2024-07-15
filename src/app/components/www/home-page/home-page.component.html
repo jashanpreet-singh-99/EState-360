@@ -59,16 +59,7 @@
     <div class="container listing-container">
         <ng-container *ngFor="let listing of topListings">
             <property-listing
-            [img]="listing.img"
-            [address]="listing.address"
-            [region]="listing.region"
-            [pinCode]="listing.pinCode"
-            [area]="listing.area"
-            [beds]="listing.beds"
-            [baths]="listing.baths"
-            [price]="listing.price"
-            [rating]="listing.rating"
-            [ratingCount]="listing.ratingCount"
+            [listing]="listing"
             ></property-listing>
         </ng-container>
     </div>
