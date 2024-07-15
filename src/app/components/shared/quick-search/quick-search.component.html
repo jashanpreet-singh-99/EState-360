@@ -24,7 +24,12 @@
             <h2>Search Location :</h2>
             <div class="search-input-container">
                 <span class="material-symbols-outlined">home</span>
-                <input formControlName="location" class="input-box" type="text" placeholder="Province ...">
+                <select class="select-box" formControlName="location" placeholder="Province ...">
+                    <option value="" selected>Select Province</option>
+                    <ng-container *ngFor="let province of provinces">
+                        <option [value]="province.value">{{ province.name }}</option>
+                    </ng-container>
+                </select>
                 <div class="divider sm-end"></div>
             </div>
         </div>

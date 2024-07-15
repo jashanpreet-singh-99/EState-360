@@ -4,6 +4,23 @@
 
 $border-radius: 16px;
 
+select {
+    -webkit-appearance: none;  /* Safari and Chrome */
+    -moz-appearance: none;     /* Firefox */
+    appearance: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Remove the background shadow/glass look */
+select::-ms-expand {
+    display: none; /* Remove the dropdown arrow in IE */
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -85,6 +102,7 @@ $border-radius: 16px;
 
             .search-input-container {
                 display: flex;
+                height: 100%;
                 padding: 8px;
                 gap: 8px;
                 flex-direction: row;
@@ -96,6 +114,16 @@ $border-radius: 16px;
                 }
 
                 .input-box {
+                    flex: 1;
+                    border: none;
+                    outline: none;
+                    padding: 8px;
+                    background-color: #F5F5F5;
+                    font-size: medium;
+                    @include font_regular($prime-text);
+                }
+
+                .select-box {
                     flex: 1;
                     border: none;
                     outline: none;
