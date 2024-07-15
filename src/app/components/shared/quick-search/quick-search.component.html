@@ -1,10 +1,10 @@
-<form class="container" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+<form class="container" [formGroup]="searchForm">
     <!-- Quick Controls -->
     <div *ngIf="!disableModeControls" class="control-container">
         <button class="toggle-btn" [class.active]="isSelectedMode(Buy)" (click)="setSelectMode(Buy)">
             <span>Buy</span>
         </button>
-        <button class="toggle-btn" [class.active]="isSelectedMode(Sell)" (click)="setSelectMode(Sell)">
+        <button class="toggle-btn" [class.active]="isSelectedMode(Sell)" (click)="setSelectMode(Sell)" disabled>
             <span>Sell</span>
         </button>
         <button class="toggle-btn" [class.active]="isSelectedMode(Rent)" (click)="setSelectMode(Rent)">
@@ -43,7 +43,7 @@
                 <input formControlName="maxPrice" class="input-box" type="number" placeholder="CAD 1000000">
             </div>
         </div>
-        <button class="search-btn">
+        <button class="search-btn" (click)="onSubmit()">
             <span>Search</span>
         </button>
     </div>

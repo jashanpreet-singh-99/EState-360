@@ -9,16 +9,6 @@ import { Listing } from './model/listing';
   styleUrl: './property-listing.component.scss'
 })
 export class PropertyListingComponent {
-  //@Input() img: string = '/assets/listing-1.jpg';
-  // @Input() address: string = 'Loading Address';
-  // @Input() region: string = '...';
-  //@Input() pinCode: string = '...';
-  // @Input() area: number = 1000;
-  // @Input() beds: number = 3;
-  // @Input() baths: number = 3;
-  // @Input() price: number = 500;
-  // @Input() rating: number = 4.5;
-  // @Input() ratingCount: number = 44;
 
   @Input() listing: Listing = {
     img: '/assets/listing-1.jpg',
@@ -30,8 +20,14 @@ export class PropertyListingComponent {
     baths: 1,
     price: 500,
     rating: 4.5,
-    ratingCount: 44
+    ratingCount: 44,
+    id: '',
+    name: 'Property Name'
   };
+
+  get name(): string {
+    return this.listing.name;
+  }
 
   get img(): string {
     return this.listing.img;

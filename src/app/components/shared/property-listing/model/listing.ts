@@ -1,4 +1,6 @@
 export interface Listing {
+    id: string;
+    name: string;
     img: string;
     address: string;
     region: string;

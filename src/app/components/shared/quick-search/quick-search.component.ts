@@ -18,6 +18,7 @@ export class QuickSearchComponent implements OnInit {
   
   @Input() selectedMode: QuickSearchMode = QuickSearchMode.Rent;
   @Input() disableModeControls: boolean = false;
+  @Input() defaultValue: ListingSearch | undefined;
   @Output() searchResult: EventEmitter<ListingSearch> = new EventEmitter<ListingSearch>();
 
   searchForm: FormGroup;
@@ -30,9 +31,16 @@ export class QuickSearchComponent implements OnInit {
       minPrice: [0, Validators.pattern(/^\d+$/)],
       maxPrice: [0, Validators.pattern(/^\d+$/)],
     }, { validators: this._priceRangeValidator });
-   }
+  }
 
   ngOnInit(): void {
+    if (this.defaultValue) {
+      this.searchForm.get('type')?.setValue(this.defaultValue.type);
+      this.searchForm.get('keywords')?.setValue(this.defaultValue.keywords);
+      this.searchForm.get('location')?.setValue(this.defaultValue.location);
+      this.searchForm.get('minPrice')?.setValue(this.defaultValue.minPrice);
+      this.searchForm.get('maxPrice')?.setValue(this.defaultValue.maxPrice);
+    }
   }
 
   private _priceRangeValidator(group: FormGroup) {

@@ -1,7 +1,7 @@
 <div class="listing-item-container">
     <img class="listing-img" [src]="img">
-    <h4>{{ address }}</h4>
-    <h5>{{ region }} {{ pinCode }}</h5>
+    <h4>{{ name }}</h4>
+    <h5>{{ address }} {{ pinCode }}</h5>
     <div class="divider"></div>
     <div class="listing-features">
         <div class="listing-feature">
@@ -25,10 +25,14 @@
         </div>
         <div class="details">
             <p>Rating</p>
-            <h4>{{ rating }} ({{ ratingCount }})</h4>
+            <div class="inline-details">
+                <img width="24" height="24" src="https://img.icons8.com/office/40/filled-star--v1.png" alt="filled-star--v1"/>
+                <h4>{{ rating }} ({{ ratingCount }})</h4>
+            </div>
         </div>
     </div>
     <div class="fav-container">
-        <span class="material-symbols-outlined">favorite</span>
+        <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/CCCCCC/filled-like.png" alt="filled-like"/>
+        <img class="active" width="20" height="20" src="https://img.icons8.com/color/48/filled-like.png" alt="filled-like"/>
     </div>
 </div>

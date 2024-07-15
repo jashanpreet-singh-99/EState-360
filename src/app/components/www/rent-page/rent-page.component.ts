@@ -1,31 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { QuickSearchComponent } from "../../shared/quick-search/quick-search.component";
-import { CommonModule } from '@angular/common';
-import { map, Observable, Subject } from 'rxjs';
-import { Listing } from '../../shared/property-listing/model/listing';
-import { ListingService } from '../../../services/listing.service';
 import { PropertyListingComponent } from "../../shared/property-listing/property-listing.component";
 import { PaginationComponent } from "../../shared/pagination/pagination.component";
-import { PageState } from '../../shared/pagination/models/page-state';
+import { map, Observable } from 'rxjs';
+import { Listing } from '../../shared/property-listing/model/listing';
 import { ListingSearch } from '../../shared/quick-search/models/listing-search';
 import { Router } from '@angular/router';
+import { ListingService } from '../../../services/listing.service';
 import { SharedSearchDataService } from '../../../services/shared-search-data.service';
+import { PageState } from '../../shared/pagination/models/page-state';
+import { CommonModule } from '@angular/common';
 import { QuickSearchMode } from '../../shared/quick-search/enums/quick_search_mode';
 
 @Component({
-  selector: 'app-buy-page',
+  selector: 'app-rent-page',
   standalone: true,
   imports: [QuickSearchComponent, CommonModule, PropertyListingComponent, PaginationComponent],
-  templateUrl: './buy-page.component.html',
-  styleUrl: './buy-page.component.scss'
+  templateUrl: './rent-page.component.html',
+  styleUrl: './rent-page.component.scss'
 })
-export class BuyPageComponent implements OnInit {
-
+export class RentPageComponent {
   listings$: Observable<Listing[]> = new Observable<Listing[]>();
   listingsCount$: Observable<number> = new Observable<number>();;
 
   listingSearch: ListingSearch = {
-    type: 'Buy',
+    type: 'Rent',
     keywords: '',
     location: '',
     minPrice: 0,
@@ -37,7 +36,7 @@ export class BuyPageComponent implements OnInit {
     private _searchDataService: SharedSearchDataService
   ) {
     this.listingSearch = this._searchDataService.getSearchData();
-    this.listingSearch.type = QuickSearchMode.Buy;
+    this.listingSearch.type = QuickSearchMode.Rent;
    }
 
   ngOnInit(): void {
