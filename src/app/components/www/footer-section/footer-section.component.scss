@@ -1,0 +1,128 @@
+@import '../../../../styles/_fonts.scss';
+@import '../../../../styles/_colors.scss';
+@import '../../../../styles/_dimns.scss';
+
+.footer-section {
+    width: 100%;
+    margin-top: 32px;
+    background-color: $footer-color;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+    
+    .container {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+
+        .footer-main {
+            flex: 2;
+            gap: 16px;
+
+            .logo-container {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 32px;
+                margin-top: 32px;
+        
+                transition: all $anim-time ease;
+        
+                .logo-s {
+                    @include font-regular($prime-text, $text-thin);
+                    color: $color-white;
+                    font-size: x-large;
+                }
+                    
+                .logo-e {
+                    @include font-regular($prime-text, $text-semibold);
+                    color: $color-accent;
+                    font-size: x-large;
+                }
+        
+            }
+    
+            p {
+                color: $color-disabled-l;
+                @include font-regular($prime-text);
+                text-align: justify;
+            }
+
+            a {
+                color: $color-disabled-l;
+                @include font-regular($prime-text);
+                text-decoration: overline;
+                transition: 0.3s ease;
+
+                &:hover {
+                    color: $color-accent;
+                    transform: scale(1.1);
+                }
+            }
+
+
+        }
+
+        .footer-options {
+            flex: 3;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .options {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+    
+                h2 {
+                    color: $color-accent;
+                    margin-bottom: 16px;
+                    margin-top: 32px;
+                    @include font-regular($prime-text, 700);
+                }
+    
+                span {
+                    color: $color-disabled-l;
+                    @include font-regular($prime-text);
+                    cursor: pointer;
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        color: $color-accent;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+    .separator {
+        height: 1px;
+        width: 100%;
+        background-color: $color-disabled-d;
+        margin-top: 48px;
+    }
+}
+
+@media (max-width: $width-lg) {
+
+    .footer-section { 
+        .container {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: $width-sm) {
+
+    .options {
+
+        h2 {
+            margin-bottom: 0;
+            font-size: medium;
+        }
+        
+        span {
+            font-size: small;
+        }
+    }
+}
