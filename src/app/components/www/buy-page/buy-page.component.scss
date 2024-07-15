@@ -1,0 +1,51 @@
+@import '../../../../styles/_fonts.scss';
+@import '../../../../styles/_dimns.scss';
+@import '../../../../styles/_colors.scss';
+
+.img-container {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+
+    transition: all $anim-time ease;
+
+    .hero-image {
+        position: absolute;
+        width: 98%;
+        height: 100%;
+        margin: 1%;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: $shadow-card;
+        filter: brightness(30%);
+        z-index: 1;
+        cursor: pointer;
+    }
+}
+
+.listing-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $nav-gap $nav-gap;
+    margin-top: $nav-gap * 2;
+    margin-bottom: $nav-gap;
+}
+
+@media (max-width: $width-lg) {
+    .listing-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: $width-md) {
+    .img-container {
+        height: 200px;
+    }
+
+    .listing-container {
+        grid-template-columns: 1fr;
+    }
+}
